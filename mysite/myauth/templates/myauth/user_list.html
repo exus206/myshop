@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <style>
+        body { font-family: Arial; max-width: 600px; margin: 50px auto; padding: 20px; }
+        .user-card { border: 1px solid #ddd; padding: 15px; margin: 10px 0; border-radius: 5px; }
+        .user-card a { color: #333; text-decoration: none; font-size: 18px; font-weight: bold; }
+        .avatar-small { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; vertical-align: middle; margin-right: 10px; }
+    </style>
+</head>
+<body>
+    <h2>{{ title }}</h2>
+
+    {% for u in users %}
+        <div class="user-card">
+            <a href="{% url 'myauth:user_detail' u.pk %}">
+                {% if u.profile.avatar %}
+                    <img src="{{ u.profile.avatar.url }}" class="avatar-small">
+                {% endif %}
+                {{ u.username }}
+            </a>
+        </div>
+    {% empty %}
+        <p>Нет пользователей.</p>
+    {% endfor %}
+
+    <p><a href="{% url 'myauth:about_me' %}">← Назад</a></p>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head><meta charset="UTF-8"><title>{{ title }}</title></head>
+<body>
+    <h2>{{ title }}</h2>
+    <p>{{ message }}</p>
+    <p><strong>Сохранено в cookie:</strong></p>
+    <ul>
+        <li>username: {{ request.user.username }}</li>
+        <li>favorite_color: blue</li>
+    </ul>
+    <a href="{% url 'myauth:cookie_get' %}">Прочитать cookie</a> |
+    <a href="{% url 'myauth:about_me' %}">Назад</a>
+</body>
+</html>

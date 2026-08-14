@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+    <style>
+        body { font-family: Arial; max-width: 400px; margin: 50px auto; padding: 20px; }
+        .form { border: 1px solid #ddd; padding: 30px; border-radius: 5px; background: #f9f9f9; }
+        input { width: 100%; padding: 8px; margin: 5px 0 15px; border: 1px solid #ddd; border-radius: 4px; }
+        button { width: 100%; background: #4CAF50; color: white; padding: 10px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; }
+        .error { color: #dc3545; }
+    </style>
+</head>
+<body>
+    <div class="form">
+        <h2>Регистрация</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Зарегистрироваться</button>
+        </form>
+        <p style="text-align: center;">Уже есть аккаунт? <a href="{% url 'myauth:login' %}">Войти</a></p>
+    </div>
+</body>
+</html>

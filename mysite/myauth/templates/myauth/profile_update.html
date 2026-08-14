@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <style>
+        body { font-family: Arial; max-width: 500px; margin: 50px auto; padding: 20px; }
+        .form { border: 1px solid #ddd; padding: 20px; border-radius: 5px; background: #f9f9f9; }
+        .avatar-preview { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin: 10px 0; }
+        button { background: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="form">
+        <h2>{{ title }}</h2>
+
+        {% if form.instance.avatar %}
+            <img src="{{ form.instance.avatar.url }}" class="avatar-preview">
+        {% endif %}
+
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Сохранить</button>
+        </form>
+        <p><a href="{% url 'myauth:user_detail' form.instance.user.pk %}">← Назад</a></p>
+    </div>
+</body>
+</html>

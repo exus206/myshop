@@ -1,0 +1,114 @@
+[
+{
+  "model": "shopapp.product",
+  "pk": 1,
+  "fields": {
+    "name": "Смартфон",
+    "description": "Современный смартфон с большим экраном и мощной камерой",
+    "price": "29999.99",
+    "discount": "10.00",
+    "quantity": 50,
+    "created_at": "2026-06-02T08:45:02.448Z",
+    "in_stock": true,
+    "archived": false,
+    "category": 1,
+    "created_by": null
+  }
+},
+{
+  "model": "shopapp.product",
+  "pk": 2,
+  "fields": {
+    "name": "Ноутбук",
+    "description": "Мощный ноутбук для работы и развлечений",
+    "price": "59999.99",
+    "discount": "5.00",
+    "quantity": 25,
+    "created_at": "2026-06-02T08:45:02.461Z",
+    "in_stock": true,
+    "archived": false,
+    "category": 1,
+    "created_by": null
+  }
+},
+{
+  "model": "shopapp.product",
+  "pk": 3,
+  "fields": {
+    "name": "Футболка",
+    "description": "Удобная футболка из натурального хлопка",
+    "price": "1499.99",
+    "discount": "15.00",
+    "quantity": 100,
+    "created_at": "2026-06-02T08:45:02.479Z",
+    "in_stock": true,
+    "archived": false,
+    "category": 2,
+    "created_by": null
+  }
+},
+{
+  "model": "shopapp.product",
+  "pk": 4,
+  "fields": {
+    "name": "Джинсы",
+    "description": "Классические джинсы прямого кроя",
+    "price": "3499.99",
+    "discount": "20.00",
+    "quantity": 75,
+    "created_at": "2026-06-02T08:45:02.495Z",
+    "in_stock": true,
+    "archived": false,
+    "category": 2,
+    "created_by": null
+  }
+},
+{
+  "model": "shopapp.product",
+  "pk": 5,
+  "fields": {
+    "name": "Наушники",
+    "description": "Беспроводные наушники с шумоподавлением",
+    "price": "7999.99",
+    "discount": "0.00",
+    "quantity": 30,
+    "created_at": "2026-06-02T08:45:02.522Z",
+    "in_stock": true,
+    "archived": false,
+    "category": 1,
+    "created_by": null
+  }
+},
+{
+  "model": "shopapp.product",
+  "pk": 6,
+  "fields": {
+    "name": "Python для начинающих",
+    "description": "Учебник по программированию на Python",
+    "price": "1299.99",
+    "discount": "25.00",
+    "quantity": 40,
+    "created_at": "2026-06-02T08:45:02.548Z",
+    "in_stock": true,
+    "archived": false,
+    "category": 3,
+    "created_by": null
+  }
+},
+{
+  "model": "shopapp.product",
+  "pk": 7,
+  "fields": {
+    "name": "ПК",
+    "description": "Персональный компьютер в сборе",
+    "price": "150000.00",
+    "discount": "5.00",
+    "quantity": 10,
+    "created_at": "2026-06-12T14:11:46.030Z",
+    "in_stock": true,
+    "archived": false,
+    "category": 1,
+    "created_by": null
+  }
+}
+]

@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "mysite"
+version = "1.0.0"
+description = "Django shop application"
+authors = ["Ваше Имя <email@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+django = "^4.2"
+djangorestframework = "^3.14"
+django-filter = "^22.1"
+Pillow = "^9.4"
+
+[tool.poetry.group.dev.dependencies]
+django-debug-toolbar = "^4.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[virtualenvs]
+create = false

@@ -1,0 +1,41 @@
+[
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$omGqbTRltrn3P1LUHJ0Gg6$pAW+pSxL3xgeoV5J+YagB2rR+0261B3zWGi1Pglf2Ls=",
+    "last_login": "2026-08-02T06:32:24.414Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "exus206@mail.ru",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-06-02T08:44:49.796Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$4M6SDXWECTDEnBUNEhUJsN$c+41C5/JZXdUb2ljeoh7KZToxwSXQ9jKiLuNQSxlwKg=",
+    "last_login": "2026-08-02T06:32:55.780Z",
+    "is_superuser": false,
+    "username": "test_1",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-08-01T13:15:23Z",
+    "groups": [],
+    "user_permissions": [
+      37,
+      38
+    ]
+  }
+}
+]

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Вход</title>
+    <style>
+        body { font-family: Arial; max-width: 400px; margin: 50px auto; padding: 20px; }
+        .login-form { border: 1px solid #ddd; padding: 30px; border-radius: 5px; background: #f9f9f9; }
+        input { width: 100%; padding: 8px; margin: 5px 0 15px; border: 1px solid #ddd; border-radius: 4px; }
+        button { width: 100%; background: #4CAF50; color: white; padding: 10px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; }
+        .error { color: #dc3545; margin-bottom: 15px; }
+    </style>
+</head>
+<body>
+    <div class="login-form">
+        <h2>Вход в систему</h2>
+        {% if form.errors %}<div class="error">Неверное имя пользователя или пароль.</div>{% endif %}
+        <form method="post">
+            {% csrf_token %}
+            <label for="username">Имя пользователя:</label>
+            <input type="text" name="username" id="username" required>
+            <label for="password">Пароль:</label>
+            <input type="password" name="password" id="password" required>
+            <button type="submit">Войти</button>
+        </form>
+        <p style="text-align: center;"><a href="/shop/">На главную</a></p>
+    </div>
+</body>
+</html>

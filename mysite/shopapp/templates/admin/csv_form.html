@@ -1,0 +1,16 @@
+{% extends "admin/base_site.html" %}
+{% load static %}
+
+{% block content %}
+<div style="max-width: 600px; margin: 20px;">
+    <h2>Импорт заказов из CSV</h2>
+    <p>Формат: delivery_address,promocode,user_id,product_ids(через точку с запятой)</p>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="button" style="background: #417690; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer;">Импортировать</button>
+    </form>
+    <br>
+    <a href="../">← Назад к заказам</a>
+</div>
+{% endblock %}

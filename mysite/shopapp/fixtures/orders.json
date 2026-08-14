@@ -1,0 +1,72 @@
+[
+{
+  "model": "shopapp.order",
+  "pk": 1,
+  "fields": {
+    "delivery_address": "г. Москва, ул. Ленина, д. 1, кв. 10",
+    "promocode": "SALE2024",
+    "created_at": "2026-06-02T08:45:10.824Z",
+    "user": 1,
+    "products": [
+      5,
+      1
+    ]
+  }
+},
+{
+  "model": "shopapp.order",
+  "pk": 2,
+  "fields": {
+    "delivery_address": "г. Санкт-Петербург, Невский пр., д. 50, кв. 25",
+    "promocode": "",
+    "created_at": "2026-06-02T08:45:10.882Z",
+    "user": 1,
+    "products": [
+      4,
+      3
+    ]
+  }
+},
+{
+  "model": "shopapp.order",
+  "pk": 3,
+  "fields": {
+    "delivery_address": "г. Екатеринбург, ул. Мира, д. 15, кв. 5",
+    "promocode": "DISCOUNT10",
+    "created_at": "2026-06-02T08:45:10.918Z",
+    "user": 1,
+    "products": [
+      6,
+      2
+    ]
+  }
+},
+{
+  "model": "shopapp.order",
+  "pk": 4,
+  "fields": {
+    "delivery_address": "г. Казань, ул. Баумана, д. 30, кв. 3",
+    "promocode": "NEWYEAR",
+    "created_at": "2026-06-02T08:45:10.950Z",
+    "user": 1,
+    "products": [
+      6,
+      3,
+      1
+    ]
+  }
+},
+{
+  "model": "shopapp.order",
+  "pk": 5,
+  "fields": {
+    "delivery_address": "г. Казань, ул. Баумана, д. 30, кв. 3",
+    "promocode": "",
+    "created_at": "2026-06-12T14:12:38.011Z",
+    "user": 1,
+    "products": [
+      7
+    ]
+  }
+}
+]

@@ -1,0 +1,26 @@
+[
+{
+  "model": "shopapp.category",
+  "pk": 1,
+  "fields": {
+    "name": "Электроника",
+    "description": "Электронные устройства и гаджеты"
+  }
+},
+{
+  "model": "shopapp.category",
+  "pk": 2,
+  "fields": {
+    "name": "Одежда",
+    "description": "Одежда и аксессуары"
+  }
+},
+{
+  "model": "shopapp.category",
+  "pk": 3,
+  "fields": {
+    "name": "Книги",
+    "description": "Книги и учебные материалы"
+  }
+}
+]

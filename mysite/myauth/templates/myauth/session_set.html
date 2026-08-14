@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head><meta charset="UTF-8"><title>{{ title }}</title></head>
+<body>
+    <h2>{{ title }}</h2>
+    <p>{{ message }}</p>
+    <p><strong>Сохранено в сессии:</strong></p>
+    <ul>
+        <li>user_prefs: {{ request.session.user_prefs }}</li>
+        <li>last_visit: {{ request.session.last_visit }}</li>
+    </ul>
+    <a href="{% url 'myauth:session_get' %}">Прочитать сессию</a> |
+    <a href="{% url 'myauth:about_me' %}">Назад</a>
+</body>
+</html>

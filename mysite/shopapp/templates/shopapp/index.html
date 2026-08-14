@@ -1,0 +1,47 @@
+<!-- shopapp/templates/shopapp/index.html -->
+{% extends 'shopapp/base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block header %}{{ title }}{% endblock %}
+
+{% block content %}
+    <h2>Добро пожаловать в {{ shop_name }}!</h2>
+    <p>Текущая дата: {{ current_date|date:"d.m.Y H:i" }}</p>
+
+    <h3>Товары:</h3>
+    <ul>
+        <li><a href="{% url 'shopapp:product_list' %}">Список товаров</a></li>
+        {% if perms.shopapp.can_create_product %}
+            <li><a href="{% url 'shopapp:create_product' %}">Создать товар</a></li>
+        {% endif %}
+    </ul>
+
+    <h3>Заказы:</h3>
+    <ul>
+        <li><a href="{% url 'shopapp:order_list' %}">Список заказов</a></li>
+        <li><a href="{% url 'shopapp:create_order' %}">Создать заказ</a></li>
+    </ul>
+
+    <h3>Файлы:</h3>
+    <ul>
+        <li><a href="{% url 'shopapp:upload_file' %}">Загрузить файл</a></li>
+        <li><a href="{% url 'shopapp:file_list' %}">Загруженные файлы</a></li>
+    </ul>
+
+    <h3>Аккаунт:</h3>
+    <ul>
+        {% if user.is_authenticated %}
+            <li><a href="{% url 'myauth:about_me' %}">Личный кабинет</a></li>
+            <li>
+                <form action="{% url 'myauth:logout' %}" method="post" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" style="background: none; border: none; color: #4CAF50; text-decoration: underline; cursor: pointer; padding: 0;">Выйти</button>
+                </form>
+            </li>
+        {% else %}
+            <li><a href="{% url 'myauth:login' %}">Войти</a></li>
+            <li><a href="{% url 'myauth:register' %}">Регистрация</a></li>
+        {% endif %}
+    </ul>
+{% endblock %}

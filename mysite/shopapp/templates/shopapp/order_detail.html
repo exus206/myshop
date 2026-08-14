@@ -1,0 +1,26 @@
+{% extends 'shopapp/base.html' %}
+{% block title %}{{ title }}{% endblock %}
+{% block header %}{{ title }}{% endblock %}
+{% block content %}
+<div style="border: 1px solid #ddd; padding: 20px; border-radius: 5px;">
+    <h2>Заказ #{{ order.id }}</h2>
+    <p><strong>Пользователь:</strong> {{ order.user.username }}</p>
+    <p><strong>Email:</strong> {{ order.user.email }}</p>
+    <p><strong>Дата:</strong> {{ order.created_at|date:"d.m.Y H:i" }}</p>
+    <p><strong>Адрес доставки:</strong> {{ order.delivery_address }}</p>
+    <p><strong>Промокод:</strong> {{ order.promocode|default:"—" }}</p>
+    <h3>Товары ({{ products_count }}):</h3>
+    <ul>
+        {% for product in order.products.all %}
+            <li>{{ product.name }} - {{ product.price|floatformat:2 }} руб.</li>
+        {% empty %}
+            <li>Нет товаров</li>
+        {% endfor %}
+    </ul>
+    <div style="margin-top: 20px; display: flex; gap: 10px;">
+        <a href="{% url 'shopapp:order_list' %}" style="background: #6c757d; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">← К списку</a>
+        <a href="{% url 'shopapp:order_update' order.pk %}" style="background: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">✏ Обновить</a>
+        <a href="{% url 'shopapp:order_delete' order.pk %}" style="background: #dc3545; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">🗑 Удалить</a>
+    </div>
+</div>
+{% endblock %}

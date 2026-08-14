@@ -1,0 +1,41 @@
+{% extends 'shopapp/base.html' %}
+{% load cache %}
+
+{% block title %}{{ title }}{% endblock %}
+{% block header %}{{ title }}{% endblock %}
+
+{% block content %}
+    <h2>Пользователь {{ owner.username }} выполнил следующие заказы:</h2>
+
+    {% if orders %}
+        {% cache 300 user_orders owner.pk %}
+            <div class="orders-list">
+                {% for order in orders %}
+                    <div class="order" style="border: 1px solid #ddd; padding: 15px; margin: 10px 0; border-radius: 5px;">
+                        <h3>
+                            <a href="{% url 'shopapp:order_detail' order.pk %}" style="color: #333; text-decoration: none;">
+                                Заказ #{{ order.id }}
+                            </a>
+                        </h3>
+                        <p><strong>Дата:</strong> {{ order.created_at|date:"d.m.Y H:i" }}</p>
+                        <p><strong>Адрес:</strong> {{ order.delivery_address }}</p>
+                        <p><strong>Промокод:</strong> {{ order.promocode|default:"—" }}</p>
+                        <p><strong>Товары:</strong></p>
+                        <ul>
+                            {% for product in order.products.all %}
+                                <li>{{ product.name }} — {{ product.price|floatformat:2 }} руб.</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endcache %}
+    {% else %}
+        <p>У пользователя {{ owner.username }} ещё нет заказов.</p>
+    {% endif %}
+
+    <p>
+        <a href="{% url 'shopapp:user_orders_export' owner.pk %}">📥 Экспорт в JSON</a> |
+        <a href="{% url 'shopapp:order_list' %}">← Все заказы</a>
+    </p>
+{% endblock %}

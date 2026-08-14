@@ -1,0 +1,82 @@
+<!-- shopapp/templates/shopapp/products.html -->
+{% extends 'shopapp/base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block header %}{{ title }}{% endblock %}
+
+{% block content %}
+    <!-- Кнопка создать — только для тех, у кого есть право -->
+    {% if perms.shopapp.can_create_product %}
+        <div style="margin-bottom: 20px;">
+            <a href="{% url 'shopapp:create_product' %}"
+               style="background: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">
+                + Создать товар
+            </a>
+        </div>
+    {% endif %}
+
+    <!-- Использование тега if -->
+    {% if products %}
+        <h2>Наши товары (всего: {{ total_products }})</h2>
+
+        <!-- Использование тега for -->
+        <div class="products-list">
+            {% for product in products %}
+                <div class="product">
+                    <!-- Название теперь ссылка на детали -->
+                    <h3>
+                        <a href="{% url 'shopapp:product_detail' product.pk %}" style="color: #333; text-decoration: none;">
+                            {{ product.name|upper }}
+                        </a>
+                    </h3>
+
+                    <!-- Использование фильтра truncatechars -->
+                    <p>{{ product.description|truncatechars:100 }}</p>
+
+                    <p>Цена: {{ product.price|floatformat:2 }} руб.</p>
+
+                    <!-- Использование фильтра date -->
+                    <p>Дата добавления: {{ product.created_at|date:"d M Y" }}</p>
+
+                    <!-- Использование тега if с фильтром yesno -->
+                    <p>В наличии: {{ product.in_stock|yesno:"Да,Нет" }}</p>
+
+                    <!-- Использование фильтра default -->
+                    <p>Категория: {{ product.category.name|default:"Без категории" }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>Товаров пока нет.</p>
+    {% endif %}
+
+    <hr>
+
+    <h2>Дополнительная информация</h2>
+
+    <!-- Использование фильтра length -->
+    <p>Количество категорий: {{ categories|length }}</p>
+
+    <!-- Использование фильтра join -->
+    <p>Популярные теги: {{ tags|join:", " }}</p>
+
+    <!-- Использование фильтра filesizeformat -->
+    <p>Текущая дата: {{ current_date|date:"d.m.Y H:i" }}</p>
+
+    <!-- Использование фильтра floatformat -->
+    <p>Текущая скидка: {{ discount_percent|floatformat:1 }}%</p>
+
+    <!-- Использование тега for с empty -->
+    <h3>Топ продаж:</h3>
+    <ul>
+        {% for item in items %}
+            <li>{{ item.name }} - {{ item.price }} руб.</li>
+        {% empty %}
+            <li>Нет данных о продажах</li>
+        {% endfor %}
+    </ul>
+
+    <!-- Использование фильтра default -->
+    <p>Магазин: {{ shop_name|default:"Неизвестный магазин" }}</p>
+{% endblock %}
