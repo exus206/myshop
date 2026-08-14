@@ -9,7 +9,7 @@ SECRET_KEY = 'django-insecure-your-secret-key-here'
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Добавляем приложение в INSTALLED_APPS
 INSTALLED_APPS = [

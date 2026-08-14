@@ -1,84 +1,69 @@
-# Практическая работа 2
+# MyShop — интернет-магазин на Django
 
-# Введение в Django
+Полнофункциональный интернет-магазин, разработанный на Django 4.2.
 
-## Практика
+## Возможности
 
-### Практика. Видео 1
+### Магазин
+- Каталог товаров с категориями
+- Просмотр, создание, обновление и архивация товаров
+- Поиск и фильтрация товаров
+- RSS-лента последних товаров
+- Sitemap
 
-- [Методы HTTP-запроса](https://developer.mozilla.org/ru/docs/Web/HTTP/Methods)
+### Заказы
+- Создание, просмотр, обновление и удаление заказов
+- Привязка заказов к пользователям и товарам
+- Экспорт заказов в JSON
+- Импорт заказов из CSV через админку
+- Просмотр заказов конкретного пользователя
 
-- [Заголовки HTTP](https://developer.mozilla.org/ru/docs/Web/HTTP/Headers)
+### Пользователи
+- Регистрация, вход и выход
+- Профиль с аватаром
+- Права доступа (создание, редактирование товаров)
+- Список пользователей
 
-- [Коды ответа HTTP](https://developer.mozilla.org/ru/docs/Web/HTTP/Status)
+### API
+- REST API на Django REST Framework
+- Пагинация
+- Фильтрация и поиск
 
-### Практика. Видео 2
+### Дополнительно
+- Загрузка файлов (до 1 МБ)
+- Cookies и сессии
+- Кэширование
+- Тесты
 
-- [Migrations | Django documentation](https://docs.djangoproject.com/en/4.0/topics/migrations/)
+## Технологии
 
-- [The Django admin site](https://docs.djangoproject.com/en/4.0/ref/contrib/admin/)
+- Django 4.2
+- Django REST Framework
+- django-filter
+- Pillow
+- SQLite
 
-- [django-admin and manage.py](https://docs.djangoproject.com/en/4.0/ref/django-admin/)
+## Установка
 
-### Практика. Видео 3
+```bash
+git clone https://github.com/exus206/myshop.git
+cd myshop/mysite
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py createsuperuser
+python manage.py runserver
+```
 
-- [URL dispatcher | Django documentation](https://docs.djangoproject.com/en/4.0/topics/http/urls/)
+## Деплой с Docker
 
-### Практика. Видео 4
+```bash
+docker compose up -d --build
+```
 
-- [Templates | Django documentation](https://docs.djangoproject.com/en/4.0/topics/templates/)
+Приложение будет доступно на `http://localhost:8000/`
 
-### Практика. Видео 5
+## Лицензия
 
-- [Built-in template tags and filters丨Django documentation](https://docs.djangoproject.com/en/4.0/ref/templates/builtins/)
-
-## Цели практической работы
-
-- Создать и запустить Django-приложение.
-
-- Выполнить миграции.
-
-- Создать суперпользователя.
-
-- Создать и заполнить веб-страницу на основе Django-шаблона.
-
-## Что нужно сделать
-
-1. Создайте проект mysite.
-
-2. Выполните стандартные миграции.
-
-3. Создайте пользователя через createsuperuser.
-
-4. Создайте приложение shopapp. Приложение должно быть установлено в настройках.
-
-5. Создайте базовый шаблон.
-
-6. Создайте шаблон на основе базового и view-функцию для отображения шаблона.  
-   В шаблоне необходимо применить
-   3 [тега](https://docs.djangoproject.com/en/4.1/ref/templates/builtins/#built-in-tag-reference) и
-   3 [фильтра](https://docs.djangoproject.com/en/4.1/ref/templates/builtins/#built-in-filter-reference).  
-   Передайте в шаблон контекст с объектами.
-
-7. Подключите view-функцию в urls.py приложения.
-
-## Советы и рекомендации
-
-Если вы работаете через PyCharm, создание и активация виртуального окружения происходит автоматически.
-
-## Что оценивается
-
-- Приложение установлено.
-
-- Базовый шаблон создан.
-
-- Шаблон создан, в шаблон передан контекст, в шаблоне использовано 3 тега и 3 фильтра.
-
-- Созданная view-функция возвращает отрисованный шаблон.
-
-- Маршруты настроены.
-
-## Как отправить работу на проверку
-
-Сдайте практическую работу этого модуля через систему контроля версий Git сервиса Skillbox GitLab. В материалах с
-практической работой напишите «Сделано» и прикрепите ссылку на репозиторий.
+MIT

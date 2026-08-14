@@ -22,9 +22,9 @@ staticfiles/
 *.swp
 
 # Docker
-Dockerfile
-docker-compose.yml
-.dockerignore
+mysite/dockerfile
+mysite/docker-compose.yml
+mysite/.dockerignore
 
 # OS
 .DS_Store
